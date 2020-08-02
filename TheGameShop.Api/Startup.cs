@@ -65,16 +65,18 @@ namespace TheGameShop.Api
 
             app.UseWebSockets();
 
+            /*GraphQL*/
+
             app.UseGraphQLWebSockets<TheGameShopSchema>("/graphql");
 
             app.UseGraphQL<TheGameShopSchema>();
 
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
 
-            dbContext.Seed();
+            dbContext.Seed(); // Database seeding
         }
 
-        /*Entity Data Model*/
+        /* EDM (Entity Data Model)*/
 
         private static IEdmModel GetEdmModel()
         {
