@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using TheGameShop.Api.Data.Entities;
 using TheGameShop.Api.GraphQL.Messaging;
+using TheGamesShop.Core.Entities;
 
 namespace TheGameShop.GraphQL.GraphQL.Messaging
 {

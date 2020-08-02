@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using GraphQL.DataLoader;
 using GraphQL.Types;
-using TheGameShop.Api.Data.Entities;
 using TheGameShop.Api.Repositories;
+using TheGamesShop.Core.Entities;
 
 namespace TheGameShop.Api.GraphQL.Types
 {

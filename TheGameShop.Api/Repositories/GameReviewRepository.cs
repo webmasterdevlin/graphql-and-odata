@@ -2,12 +2,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using TheGameShop.Api.Data;
-using TheGameShop.Api.Data.Entities;
+using TheGameShop.Infrastructure.Data;
+using TheGamesShop.Core.Entities;
+using TheGamesShop.Core.Interfaces;
 
 namespace TheGameShop.Api.Repositories
 {
-    public class GameReviewRepository
+    public class GameReviewRepository : IGameReviewRepository
     {
         private readonly TheGameShopDbContext _dbContext;
 

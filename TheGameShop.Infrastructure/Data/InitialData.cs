@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TheGameShop.Api.Data.Entities;
+using TheGamesShop.Core;
+using TheGamesShop.Core.Entities;
 
-namespace TheGameShop.Api.Data
+namespace TheGameShop.Infrastructure.Data
 {
     public static class InitialData
     {

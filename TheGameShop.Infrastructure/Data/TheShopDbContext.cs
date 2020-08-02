@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TheGameShop.Api.Data.Entities;
+using TheGamesShop.Core.Entities;
 
-namespace TheGameShop.Api.Data
+namespace TheGameShop.Infrastructure.Data
 {
     public class TheGameShopDbContext : DbContext
     {

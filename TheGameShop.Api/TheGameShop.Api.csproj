@@ -10,18 +10,19 @@
 		<PackageReference Include="GraphQL.Server.Transports.WebSockets" Version="3.4.0" />
 		<PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.4.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OData" Version="7.4.1" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="3.1.6" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\TheGameShop.Infrastructure\TheGameShop.Infrastructure.csproj" />
+		<ProjectReference Include="..\TheGamesShop.Core\TheGamesShop.Core.csproj" />
 	</ItemGroup>
 </Project>

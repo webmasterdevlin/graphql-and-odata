@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TheGameShop.Api.Data.Entities
+namespace TheGamesShop.Core.Entities
 {
     public class GameReview
     {

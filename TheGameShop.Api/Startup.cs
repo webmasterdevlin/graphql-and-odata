@@ -1,18 +1,16 @@
 ﻿using GraphQL;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
-using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OData.Edm;
-using TheGameShop.Api.Data;
-using TheGameShop.Api.Data.Entities;
 using TheGameShop.Api.GraphQL;
+using TheGameShop.Api.OData;
 using TheGameShop.Api.Repositories;
 using TheGameShop.GraphQL.GraphQL.Messaging;
+using TheGameShop.Infrastructure.Data;
 
 namespace TheGameShop.Api
 {
@@ -60,7 +58,7 @@ namespace TheGameShop.Api
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.Select().OrderBy().Filter().Count().OrderBy().Expand(); // .MaxTop(10)
-                routeBuilder.MapODataServiceRoute("odata", "odata", GetEdmModel());
+                routeBuilder.MapODataServiceRoute("odata", "odata", EntityDataModel.GetEdmModel());
             });
 
             app.UseWebSockets();
@@ -74,16 +72,6 @@ namespace TheGameShop.Api
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
 
             dbContext.Seed(); // Database seeding
-        }
-
-        /* EDM (Entity Data Model)*/
-
-        private static IEdmModel GetEdmModel()
-        {
-            var edmBuilder = new ODataConventionModelBuilder();
-            edmBuilder.EntitySet<Game>("Games");
-
-            return edmBuilder.GetEdmModel();
         }
     }
 }

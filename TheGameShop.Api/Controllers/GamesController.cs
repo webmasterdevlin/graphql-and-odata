@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TheGameShop.Api.Data;
-using TheGameShop.Api.Data.Entities;
+using TheGameShop.Infrastructure.Data;
+using TheGamesShop.Core.Entities;
 
 namespace TheGameShop.Api.Controllers
 {

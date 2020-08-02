@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TheGameShop.Api.Data;
+using TheGameShop.Infrastructure.Data;
 
-namespace TheGameShop.Api.Migrations
+namespace TheGameShop.Infrastructure.Migrations
 {
     [DbContext(typeof(TheGameShopDbContext))]
-    [Migration("20200801233428_initial")]
-    partial class initial
+    [Migration("20200802090423_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,7 @@ namespace TheGameShop.Api.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.6");
 
-            modelBuilder.Entity("TheGameShop.Api.Data.Entities.Game", b =>
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Game", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace TheGameShop.Api.Migrations
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("TheGameShop.Api.Data.Entities.GameReview", b =>
+            modelBuilder.Entity("TheGamesShop.Core.Entities.GameReview", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -81,9 +81,9 @@ namespace TheGameShop.Api.Migrations
                     b.ToTable("GameReviews");
                 });
 
-            modelBuilder.Entity("TheGameShop.Api.Data.Entities.GameReview", b =>
+            modelBuilder.Entity("TheGamesShop.Core.Entities.GameReview", b =>
                 {
-                    b.HasOne("TheGameShop.Api.Data.Entities.Game", "Game")
+                    b.HasOne("TheGamesShop.Core.Entities.Game", "Game")
                         .WithMany("GameReviews")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)

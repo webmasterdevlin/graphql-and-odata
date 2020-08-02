@@ -1,5 +1,5 @@
 ﻿using GraphQL.Types;
-using TheGameShop.Api.Data.Entities;
+using TheGamesShop.Core.Entities;
 
 namespace TheGameShop.Api.GraphQL.Types
 {

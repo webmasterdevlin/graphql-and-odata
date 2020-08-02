@@ -1,4 +1,4 @@
-﻿namespace TheGameShop.Api.Data
+﻿namespace TheGamesShop.Core
 {
     public enum GameTypeEnum
     {
