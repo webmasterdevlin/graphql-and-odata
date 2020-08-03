@@ -57,7 +57,7 @@ namespace TheGameShop.Api
 
             app.UseMvc(routeBuilder =>
             {
-                routeBuilder.Select().OrderBy().Filter().Count().OrderBy().Expand(); // .MaxTop(10)
+                routeBuilder.Select().OrderBy().Filter().Count().Expand(); // .MaxTop(10)
                 routeBuilder.MapODataServiceRoute("odata", "odata", EntityDataModel.GetEdmModel());
             });
 
