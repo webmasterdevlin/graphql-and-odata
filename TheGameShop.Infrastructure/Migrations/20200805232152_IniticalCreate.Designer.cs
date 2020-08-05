@@ -9,14 +9,34 @@ using TheGameShop.Infrastructure.Data;
 namespace TheGameShop.Infrastructure.Migrations
 {
     [DbContext(typeof(TheGameShopDbContext))]
-    [Migration("20200803005243_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200805232152_IniticalCreate")]
+    partial class IniticalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.6");
+
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Developer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Developers");
+                });
 
             modelBuilder.Entity("TheGamesShop.Core.Entities.Game", b =>
                 {
@@ -81,6 +101,53 @@ namespace TheGameShop.Infrastructure.Migrations
                     b.ToTable("GameReviews");
                 });
 
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Genre");
+                });
+
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Publisher");
+                });
+
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Developer", b =>
+                {
+                    b.HasOne("TheGamesShop.Core.Entities.Game", null)
+                        .WithMany("DevelopedBy")
+                        .HasForeignKey("GameId");
+                });
+
             modelBuilder.Entity("TheGamesShop.Core.Entities.GameReview", b =>
                 {
                     b.HasOne("TheGamesShop.Core.Entities.Game", "Game")
@@ -88,6 +155,20 @@ namespace TheGameShop.Infrastructure.Migrations
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Genre", b =>
+                {
+                    b.HasOne("TheGamesShop.Core.Entities.Game", null)
+                        .WithMany("Genre")
+                        .HasForeignKey("GameId");
+                });
+
+            modelBuilder.Entity("TheGamesShop.Core.Entities.Publisher", b =>
+                {
+                    b.HasOne("TheGamesShop.Core.Entities.Game", null)
+                        .WithMany("PublishedBy")
+                        .HasForeignKey("GameId");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,5 +11,6 @@ namespace TheGameShop.Infrastructure.Data
 
         public DbSet<Game> Games { get; set; }
         public DbSet<GameReview> GameReviews { get; set; }
+        public DbSet<Developer> Developers { get; set; }
     }
 }

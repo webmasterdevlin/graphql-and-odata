@@ -12,6 +12,10 @@ namespace TheGamesShop.Core.Entities
         [StringLength(100), Required]
         public string Name { get; set; }
 
+        public List<Developer> DevelopedBy { get; set; }
+        public List<Publisher> PublishedBy { get; set; }
+        public List<Genre> Genre { get; set; }
+
         public GameTypeEnum Type { get; set; }
 
         [Required]

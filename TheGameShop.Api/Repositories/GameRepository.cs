@@ -13,8 +13,28 @@ namespace TheGameShop.Api.Repositories
 
         public GameRepository(TheGameShopDbContext dbContext) => _dbContext = dbContext;
 
-        public async Task<IEnumerable<Game>> GetAll() => await _dbContext.Games.ToListAsync();
+        public async Task<IEnumerable<Game>> GetAll()
+        {
+            var games = await _dbContext
+                  .Games
+                  .Include(g => g.DevelopedBy)
+                  .Include(g => g.PublishedBy)
+                  .Include(g => g.Genre)
+                  .ToListAsync();
 
-        public async Task<Game> GetOne(int id) => await _dbContext.Games.SingleOrDefaultAsync(g => g.Id == id);
+            return games;
+        }
+
+        public async Task<Game> GetOne(int id)
+        {
+            var game = await _dbContext
+                .Games
+                .Include(g => g.DevelopedBy)
+                .Include(g => g.PublishedBy)
+                .Include(g => g.Genre)
+                .SingleOrDefaultAsync(g => g.Id == id);
+
+            return game;
+        }
     }
 }

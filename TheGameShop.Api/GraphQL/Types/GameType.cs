@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using GraphQL;
 using GraphQL.DataLoader;
 using GraphQL.Types;
 using TheGameShop.Api.Repositories;
@@ -12,6 +15,9 @@ namespace TheGameShop.Api.GraphQL.Types
         {
             Field(t => t.Id);
             Field(t => t.Name);
+            Field(t => t.DevelopedBy, type: typeof(ListGraphType<DeveloperType>)).Description("Developers of this game.");
+            Field(t => t.PublishedBy, type: typeof(ListGraphType<PublisherType>)).Description("Publishers of this game");
+            Field(t => t.Genre, type: typeof(ListGraphType<GenreType>)).Description("Genre of this game");
             Field(t => t.Description);
             Field(t => t.IntroducedAt).Description("When the game was first introduced in the catalog");
             Field(t => t.PhotoFileName).Description("The file name of the photo so the client can render it");

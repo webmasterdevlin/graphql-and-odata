@@ -15,7 +15,20 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Batman: Arkham Knight",
-                Description = "Batman: Arkham Knight is a 2015 action-adventure game developed by Rocksteady Studios and published by Warner Bros. Interactive Entertainment. Based on the DC Comics superhero Batman, it is the successor to the 2013 video game Batman: Arkham Origins, and the fourth main installment in the Batman: Arkham series.",
+                DevelopedBy = new List<Developer>()
+                {
+                    new Developer() {Name = "Rocksteady Studios"},
+                    new Developer() {Name = "Iron Galaxy Studios"},
+                    new Developer() {Name = "WB Games Montreal"}
+                },
+                PublishedBy = new List<Publisher>()
+                {
+                    new Publisher() {Name = "Warner Bros. Interactive Entertainment"},
+                    new Publisher() {Name = "Warner Bros."}
+                },
+                Genre = new List<Genre>() { new Genre() { Type = "Action" }, new Genre() { Type = "Adventure" } },
+                Description =
+                    "Batman: Arkham Knight is a 2015 action-adventure game developed by Rocksteady Studios and published by Warner Bros. Interactive Entertainment. Based on the DC Comics superhero Batman, it is the successor to the 2013 video game Batman: Arkham Origins, and the fourth main installment in the Batman: Arkham series.",
                 Price = 19.5m,
                 Rating = 10,
                 Type = GameTypeEnum.PlayStation,
@@ -27,7 +40,8 @@ namespace TheGameShop.Infrastructure.Data
                     new GameReview
                     {
                         Title = "My favorite Batman game",
-                        Review = "Overall, the game, while flawed, is a superb game, and an even better Batman game. Maybe not the best in Arkham series, but definitely the one I play the most, and the one I will without a doubt, call my favorite. "
+                        Review =
+                            "Overall, the game, while flawed, is a superb game, and an even better Batman game. Maybe not the best in Arkham series, but definitely the one I play the most, and the one I will without a doubt, call my favorite. "
                     },
                 }
             });
@@ -35,7 +49,22 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "God of War",
-                Description = "Living as a man outside the shadow of the gods, Kratos must adapt to unfamiliar lands, unexpected threats and a second chance at being a father. Together with his son Atreus, the pair will venture into the brutal realm of Midgard and fight to fulfil a deeply personal quest.",
+                DevelopedBy = new List<Developer>()
+                {
+                    new Developer() {Name = "SCE Santa Monica"}
+                },
+                PublishedBy = new List<Publisher>()
+                {
+                    new Publisher() {Name = "Sony Interactive"},
+                    new Publisher() {Name = "Entertainment"}
+                },
+                Genre = new List<Genre>()
+                {
+                    new Genre() {Type = "Action"},
+                    new Genre() {Type = "Adventure"}
+                },
+                Description =
+                    "Living as a man outside the shadow of the gods, Kratos must adapt to unfamiliar lands, unexpected threats and a second chance at being a father. Together with his son Atreus, the pair will venture into the brutal realm of Midgard and fight to fulfil a deeply personal quest.",
                 Price = 21.9m,
                 Rating = 10,
                 Type = GameTypeEnum.PlayStation,
@@ -47,12 +76,14 @@ namespace TheGameShop.Infrastructure.Data
                     new GameReview
                     {
                         Title = "Top game",
-                        Review = "One of the top 5 best exclusive title to have! If you have a Playstation 4 console you already made the first step in making the best decision, secondly if you still haven't experienced the exclusive titles on offer for PlayStation 4 then you way behind and of course God of war is among the best top 5."
+                        Review =
+                            "One of the top 5 best exclusive title to have! If you have a Playstation 4 console you already made the first step in making the best decision, secondly if you still haven't experienced the exclusive titles on offer for PlayStation 4 then you way behind and of course God of war is among the best top 5."
                     },
                     new GameReview
                     {
                         Title = "The best",
-                        Review = "One of the best video games I've ever played, if not THE best. It has an engaging combat, it's fast, it's challenging but never to the point of it being unfair, it took a different approach from the overly repetitive combat of the previous games."
+                        Review =
+                            "One of the best video games I've ever played, if not THE best. It has an engaging combat, it's fast, it's challenging but never to the point of it being unfair, it took a different approach from the overly repetitive combat of the previous games."
                     }
                 }
             });
@@ -60,7 +91,25 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "The Elder Scrolls V: Skyrim",
-                Description = "The Elder Scrolls V: Skyrim is an action role-playing video game developed by Bethesda Game Studios and published by Bethesda Softworks. ",
+                DevelopedBy = new List<Developer>()
+                {
+                    new Developer() {Name = "Iron Galaxy Studios"},
+                    new Developer() {Name = "Bethesda Game Studios"},
+                    new Developer() {Name = "Betheda Softworks"}
+                },
+                PublishedBy = new List<Publisher>()
+                {
+                    new Publisher() {Name = "Bethesda Softworks"},
+                    new Publisher() {Name = "Square Enix"},
+                    new Publisher() {Name = "Bethesda Game Studios"}
+                },
+                Genre = new List<Genre>()
+                {
+                    new Genre() {Type = "Role-Playing"},
+                    new Genre() {Type = "VR"}
+                },
+                Description =
+                    "The Elder Scrolls V: Skyrim is an action role-playing video game developed by Bethesda Game Studios and published by Bethesda Softworks. ",
                 Price = 28.99m,
                 Rating = 0,
                 Type = GameTypeEnum.Nintendo,
@@ -72,7 +121,8 @@ namespace TheGameShop.Infrastructure.Data
                     new GameReview
                     {
                         Title = "The game is absolutely outstanding!",
-                        Review = "The graphics are amazing and spectacular. I love the interactions with characters in the game, but i still do feel that there should be a greater variety of communication between the townspeople and the dragonborn. The quest lines are great and definitely interesting to the point where you're just absolutely hooked! The combat, weapons, and armor are astounding and amazingly magnificent, great work on the entire game."
+                        Review =
+                            "The graphics are amazing and spectacular. I love the interactions with characters in the game, but i still do feel that there should be a greater variety of communication between the townspeople and the dragonborn. The quest lines are great and definitely interesting to the point where you're just absolutely hooked! The combat, weapons, and armor are astounding and amazingly magnificent, great work on the entire game."
                     }
                 }
             });
@@ -80,7 +130,15 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "LEGO Star Wars: The Skywalker Saga",
-                Description = "Lego Star Wars: The Skywalker Saga will be the biggest Lego Star Wars adventure yet when it launches later this year, spanning all nine Skywalker saga films--including The Rise of Skywalker.",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "IT Games" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Warner Bros. Interactive Entertainment" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() {Type = "Adventure"},
+                    new Genre() {Type = "Action"}
+                },
+                Description =
+                    "Lego Star Wars: The Skywalker Saga will be the biggest Lego Star Wars adventure yet when it launches later this year, spanning all nine Skywalker saga films--including The Rise of Skywalker.",
                 Price = 19.5m,
                 Rating = 7,
                 Type = GameTypeEnum.Nintendo,
@@ -92,7 +150,15 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Assassin's Creed Valhalla",
-                Description = "Become Eivor, a mighty Viking raider and lead your clan from the harsh shores of Norway to a new home amid the lush farmlands of ninth-century England. Explore a beautiful, mysterious open world where you'll face brutal enemies, raid fortresses, build your clan's new settlement, and forge alliances to win glory and earn a place in Valhalla.",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Ubisoft Montreal" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Ubisoft" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() {Type = "Action"},
+                    new Genre() {Type = "Adventure"}
+                },
+                Description =
+                    "Become Eivor, a mighty Viking raider and lead your clan from the harsh shores of Norway to a new home amid the lush farmlands of ninth-century England. Explore a beautiful, mysterious open world where you'll face brutal enemies, raid fortresses, build your clan's new settlement, and forge alliances to win glory and earn a place in Valhalla.",
                 Price = 20m,
                 Rating = 8,
                 Type = GameTypeEnum.Xbox,
@@ -104,7 +170,8 @@ namespace TheGameShop.Infrastructure.Data
                     new GameReview
                     {
                         Title = "So this is my 1st ever...",
-                        Review = "An amazing, albeit at times annoying- yet fun, game, love the tie ins, first time I ever played the game I was so hyped, the story is a little rushed, but if you’re a busy body, and if you take your time, you can seriously fall in love with this game, eventually you’ll become a badass."
+                        Review =
+                            "An amazing, albeit at times annoying- yet fun, game, love the tie ins, first time I ever played the game I was so hyped, the story is a little rushed, but if you’re a busy body, and if you take your time, you can seriously fall in love with this game, eventually you’ll become a badass."
                     }
                 }
             });
@@ -112,6 +179,19 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Cyberpunk 2077",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "CD Projekt Red Studio" } },
+                PublishedBy = new List<Publisher>()
+                {
+                    new Publisher() {Name = "Warener Bros. Interactive Entertainment"},
+                    new Publisher() {Name = "CD Project RED S.A."},
+                    new Publisher() {Name = "Bandai Namco Games"},
+                    new Publisher() {Name = "CD Projekt Red Studio"}, new Publisher() {Name = "Spike Chunsoft"}
+                },
+                Genre = new List<Genre>()
+                {
+                    new Genre() {Type = "Action"},
+                    new Genre() {Type = "Role-Playing"}
+                },
                 Description = "Cyberpunk 2077 is a RPG set in the corrupt and tech-advanced world of the year 2077..",
                 Price = 40m,
                 Rating = 9,
@@ -121,9 +201,11 @@ namespace TheGameShop.Infrastructure.Data
                 IntroducedAt = DateTimeOffset.Now.AddMonths(-1),
                 GameReviews = new List<GameReview>
                 {
-                    new GameReview {
+                    new GameReview
+                    {
                         Title = " I highly recommend this game",
-                        Review = "Pretty decent game overall I’d like to just point out that the gun sounds are absolutely amazing. The graphics are magnificent and the new design of the game is really astounding."
+                        Review =
+                            "Pretty decent game overall I’d like to just point out that the gun sounds are absolutely amazing. The graphics are magnificent and the new design of the game is really astounding."
                     }
                 }
             });
@@ -131,7 +213,15 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Ghost of Tsushima",
-                Description = "Ghost of Tsushima is an action-adventure game developed by Sucker Punch Productions and published by Sony Interactive Entertainment for PlayStation 4. Featuring an open world for players to explore, it revolves around Jin Sakai, one of the last samurai on Tsushima Island during the first Mongol invasion of Japan.",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Sucker Punch" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Sony Interactive Entertainment" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() {Type = "Action"},
+                    new Genre() {Type = "Adventure"}
+                },
+                Description =
+                    "Ghost of Tsushima is an action-adventure game developed by Sucker Punch Productions and published by Sony Interactive Entertainment for PlayStation 4. Featuring an open world for players to explore, it revolves around Jin Sakai, one of the last samurai on Tsushima Island during the first Mongol invasion of Japan.",
                 Price = 23m,
                 Rating = 8,
                 Type = GameTypeEnum.PlayStation,
@@ -140,9 +230,11 @@ namespace TheGameShop.Infrastructure.Data
                 IntroducedAt = DateTimeOffset.Now.AddMonths(-1),
                 GameReviews = new List<GameReview>
                 {
-                    new GameReview {
+                    new GameReview
+                    {
                         Title = "The combat is challenging but fair.",
-                        Review = "OMG what an incredible game!!!! I'm about fifteen hours in and GoS is an epic of an adventure. It's the feudal Japan game we've been begging for for years!"
+                        Review =
+                            "OMG what an incredible game!!!! I'm about fifteen hours in and GoS is an epic of an adventure. It's the feudal Japan game we've been begging for for years!"
                     }
                 }
             });
@@ -150,6 +242,14 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Uncharted 4: A Thief's End",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Naughty Dog" } },
+                PublishedBy = new List<Publisher>() {
+                    new Publisher(){Name = "SCE Australia"},
+                    new Publisher(){Name =  "SCEA"},
+                    new Publisher(){Name =  "SCEE"},
+                    new Publisher(){Name =  "Sony Interactive Entertainment"}
+                },
+                Genre = new List<Genre>() { new Genre() { Type = "Action" }, new Genre() { Type = "Adventure" } },
                 Description = "Uncharted 4: A Thief's End is a 2016 action-adventure game developed by Naughty Dog and published by Sony Computer Entertainment. It is the fourth main entry in the Uncharted series.",
                 Price = 18m,
                 Rating = 10,
@@ -169,6 +269,15 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Resident Evil 7: Biohazard",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Capcom" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Capcom" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "VR" },
+                    new Genre() { Type = "3D" },
+                    new Genre() { Type = "Action" },
+                    new Genre() { Type = "Survival" }
+                },
                 Description = "Resident Evil 7: Biohazard is a survival horror video game developed and published by Capcom, released in January 2017 for Microsoft Windows, PlayStation 4, Xbox One and in May 2018 for the Nintendo Switch in Japan.",
                 Price = 22m,
                 Rating = 8,
@@ -188,6 +297,9 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Monster Hunter World",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Capcom" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Capcom" } },
+                Genre = new List<Genre>() { new Genre() { Type = "Action" }, new Genre() { Type = "Role-Playing" } },
                 Description = "Monster Hunter: World is an action role-playing game developed and published by Capcom. A part of the Monster Hunter series, it was released worldwide for PlayStation 4 and Xbox One in January 2018, with a Microsoft Windows version following in August 2018.",
                 Price = 20m,
                 Rating = 7,
@@ -207,6 +319,13 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "The Legend of Zelda: Link's Awakening",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Grezzo" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Nintendo" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "Adventures" },
+                    new Genre() { Type = "Action" }
+                },
                 Description = "The Legend of Zelda: Link's Awakening is an action-adventure game developed by Grezzo and published by Nintendo for the Nintendo Switch. It was released on September 20, 2019. As of March 2020, the game has sold over 4 million copies worldwide, making it one of the best-selling Nintendo Switch games.",
                 Price = 50m,
                 Rating = 3,
@@ -226,6 +345,14 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Super Mario Maker 2",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Nintendo" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Nintendo" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "Action" },
+                    new Genre() { Type = "2d" },
+                    new Genre() { Type = "Platformer" }
+                },
                 Description = "Super Mario Maker 2 is a side-scrolling platform game and game creation system developed and published by Nintendo for the Nintendo Switch. It is the sequel to Super Mario Maker, and it was released worldwide on June 28, 2019.",
                 Price = 43m,
                 Rating = 8,
@@ -245,6 +372,13 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Assassin's Creed Odyssey",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Ubisoft Montreal" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Ubisoft" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "Action" },
+                    new Genre() { Type = "Adventure" }
+                },
                 Description = "Assassin's Creed Odyssey is the most recent addition to the epic Assassin's Creed RPG franchise. Odyssey is set during the Peloponnesian War and sees you stepping into the sandals of either Alexios or Kassandra as they try to uncover the truth about their history while navigating the turbulent world of Ancient Greece as a mercenary. ",
                 Price = 19.9m,
                 Rating = 3,
@@ -264,6 +398,13 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Apex Legends",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Respawn Entertainment" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Electronic Arts" } },
+                Genre = new List<Genre>() {
+                    new Genre() {Type = "Shooter"},
+                    new Genre() {Type =  "Tactical"},
+                    new Genre() {Type =  "Action"},
+                    new Genre() {Type = "First-Person" }},
                 Description = "Apex Legends is another contender vying for the battle royale crown. Developed by Respawn Entertainment and set in the Titanfall universe, Apex Legends is a squad-based battle royale shooter where teams of three go up against 57 other players to try to gather loot and be the last person (or squad) standing.",
                 Price = 20.5m,
                 Rating = 7,
@@ -283,6 +424,15 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Tom Clancy's Rainbow Six Siege",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Ubisoft Montreal" }, new Developer() { Name = "Ubisoft" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Ubisoft" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "First-Person" },
+                    new Genre() { Type = "Shooter" },
+                    new Genre() { Type = "Tactical" },
+                    new Genre() { Type = "Action" }
+                },
                 Description = "Tom Clancy's Rainbow Six Siege is an online tactical shooter video game developed by Ubisoft Montreal and published by Ubisoft. It was released worldwide for Microsoft Windows, PlayStation 4, and Xbox One on December 1, 2015; the game is also set to be released for PlayStation 5 and Xbox Series X in 2020.",
                 Price = 24.5m,
                 Rating = 7,
@@ -302,6 +452,13 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Desperados 3",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Mimimi Productions" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "THQ Nordic" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "Strategy" },
+                    new Genre() { Type = "Real-Time" }
+                },
                 Description = "ApexDesperados III is a real-time tactics video game developed by Mimimi Games and published by THQ Nordic. The first installment in the Desperados series since the 2007 spin-off title Helldorado, it was released for Microsoft Windows, PlayStation 4 and Xbox One.",
                 Price = 20.5m,
                 Rating = 7,
@@ -321,6 +478,15 @@ namespace TheGameShop.Infrastructure.Data
             dbContext.Games.Add(new Game
             {
                 Name = "Call of Duty: Modern Warfare",
+                DevelopedBy = new List<Developer>() { new Developer() { Name = "Infinity Ward" } },
+                PublishedBy = new List<Publisher>() { new Publisher() { Name = "Activision" }, new Publisher() { Name = "Sony Interactive Entertainment" } },
+                Genre = new List<Genre>()
+                {
+                    new Genre() { Type = "Action" },
+                    new Genre() { Type = "First-Person" },
+                    new Genre() { Type = "Shooter" },
+                    new Genre() { Type = "3D" }
+                },
                 Description = "Call of Duty: Modern Warfare is a 2019 first-person shooter video game developed by Infinity Ward and published by Activision.",
                 Price = 20.5m,
                 Rating = 7,
