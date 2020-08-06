@@ -18,6 +18,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ReviewForm from "../components/review-form";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -66,6 +67,7 @@ const GameDetails: React.FC<any> = (props) => {
 
   const { loading, data, error } = useQuery<GameType>(GAME_QUERY, {
     variables: { gameId: id },
+    // pollInterval: 500,
   });
 
   if (loading) return <h2>Loading...</h2>;
@@ -118,9 +120,7 @@ const GameDetails: React.FC<any> = (props) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>
-                {review.title}
-              </Typography>
+              <Box fontWeight={"700"}>{review.title}</Box>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>{review.review}</Typography>
@@ -128,6 +128,7 @@ const GameDetails: React.FC<any> = (props) => {
           </Accordion>
         </>
       ))}
+      <ReviewForm id={id} />
     </Container>
   );
 };
