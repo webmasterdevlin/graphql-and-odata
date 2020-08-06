@@ -1,15 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import {
-  ApolloClient,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
-import { cache } from "./cache";
+import { ApolloClient, ApolloProvider, gql } from "@apollo/client";
+import { cache } from "./graphql-cache";
 
 const client = new ApolloClient({
   cache: cache,
@@ -25,6 +21,9 @@ client
           id
           name
           price
+          reviews {
+            title
+          }
         }
       }
     `,
@@ -33,9 +32,11 @@ client
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <CssBaseline>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </CssBaseline>
   </React.StrictMode>,
   document.getElementById("root")
 );

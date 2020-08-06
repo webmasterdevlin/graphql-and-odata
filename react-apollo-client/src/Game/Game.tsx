@@ -1,6 +1,6 @@
 import React from "react";
-import { GameModel } from "./game.model";
 import { gql, useMutation } from "@apollo/client";
+import { GameModel } from "../GraphQL/GamesType";
 
 const CREATE_REVIEW = gql`
   mutation createReview($review: reviewInput!) {
@@ -42,12 +42,6 @@ const Game: React.FC<Props> = ({ game }) => {
           ))}
         </ol>
         <hr />
-      </div>
-      <div>
-        <label htmlFor={game.name}>
-          <em>Add to cart: </em>
-        </label>
-        <input type="checkbox" id={game.name} />
       </div>
     </div>
   );
