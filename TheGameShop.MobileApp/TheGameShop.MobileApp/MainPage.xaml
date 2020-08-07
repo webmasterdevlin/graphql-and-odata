@@ -4,10 +4,10 @@
              x:Class="TheGameShop.MobileApp.MainPage">
 
     <StackLayout>
-        <ListView x:Name="MyListView">
+        <ListView x:Name="GamesListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding Description}"></TextCell>
+                    <ImageCell Text="{Binding Name}" Detail="{Binding Description}" ImageSource="{Binding Image}"></ImageCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

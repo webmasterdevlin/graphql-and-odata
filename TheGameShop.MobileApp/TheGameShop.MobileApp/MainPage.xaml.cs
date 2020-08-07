@@ -17,11 +17,11 @@ namespace TheGameShop.MobileApp
 
         protected override async void OnAppearing()
         {
-            List<Game> games = await GraphQLServices.GetGames();
+            var games = await GraphQLServices.GetGames();
 
             _games = new ObservableCollection<Game>(games);
 
-            MyListView.ItemsSource = _games;
+            GamesListView.ItemsSource = _games;
 
             base.OnAppearing();
         }
