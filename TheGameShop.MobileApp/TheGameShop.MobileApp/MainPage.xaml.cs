@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using GraphQL;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using Polly;
-using TheGameShop.Mobile.Constants;
 using Xamarin.Forms;
 
 namespace TheGameShop.MobileApp
@@ -34,9 +31,9 @@ namespace TheGameShop.MobileApp
             base.OnAppearing();
         }
 
-        private static readonly Lazy<GraphQLHttpClient> _clientHolder = new Lazy<GraphQLHttpClient>(CreateGraphQLClient);
+        private static readonly Lazy<GraphQLHttpClient> ClientHolder = new Lazy<GraphQLHttpClient>(CreateGraphQLClient);
 
-        private static GraphQLHttpClient Client => _clientHolder.Value;
+        private static GraphQLHttpClient Client => ClientHolder.Value;
 
         public static async Task<List<Game>> GetGames()
         {
@@ -46,7 +43,7 @@ namespace TheGameShop.MobileApp
             };
 
             var data = await AttemptAndRetry(() => Client
-                .SendQueryAsync<GameGraphQLResponse>(graphQLRequest))
+                    .SendQueryAsync<GameGraphQLResponse>(graphQLRequest))
                 .ConfigureAwait(false);
 
             return data.Games;
@@ -67,7 +64,7 @@ namespace TheGameShop.MobileApp
 
         private static async Task<T> AttemptAndRetry<T>(Func<Task<GraphQLResponse<T>>> action, int numRetries = 2)
         {
-            var response = await Policy.Handle<Exception>().WaitAndRetryAsync(numRetries, pollyRetryAttempt).ExecuteAsync(action).ConfigureAwait(false);
+            var response = await Policy.Handle<Exception>().WaitAndRetryAsync(numRetries, PollyRetryAttempt).ExecuteAsync(action).ConfigureAwait(false);
 
             if (response.Errors != null && response.Errors.Count() > 1)
                 throw new AggregateException(response.Errors.Select(x => new Exception(x.ToString())));
@@ -76,21 +73,7 @@ namespace TheGameShop.MobileApp
 
             return response.Data;
 
-            static TimeSpan pollyRetryAttempt(int attemptNumber) => TimeSpan.FromSeconds(Math.Pow(2, attemptNumber));
-        }
-
-        public async Task<IEnumerable<Game>> GetItemsAsync(bool forceRefresh = false)
-        {
-            var graphQLRequest = new GraphQLRequest
-            {
-                Query = "query { games  { id, name } }"
-            };
-
-            var data = await AttemptAndRetry(() => Client
-                    .SendQueryAsync<GameGraphQLResponse>(graphQLRequest))
-                .ConfigureAwait(false);
-
-            return data.Games;
+            static TimeSpan PollyRetryAttempt(int attemptNumber) => TimeSpan.FromSeconds(Math.Pow(2, attemptNumber));
         }
     }
 }
