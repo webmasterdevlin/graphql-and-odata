@@ -1,5 +1,5 @@
 import { InMemoryCache } from "@apollo/client";
-import { GameModel } from "./GraphQL/GamesType";
+import { GameModel } from "./Game/models/game.model";
 
 export const cache: InMemoryCache = new InMemoryCache({
   typePolicies: {
