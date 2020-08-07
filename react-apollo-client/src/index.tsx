@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { ApolloClient, ApolloProvider, gql } from "@apollo/client";
-import { cache } from "./graphql-cache";
+import { cache } from "./cache";
 
 const client = new ApolloClient({
   cache: cache,

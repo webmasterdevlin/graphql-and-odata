@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {};
 
-const Dashboard: React.FC<Props> = () => {
+const Dashboard = () => {
   return <h1>Dashboard works!</h1>;
 };
 

@@ -36,7 +36,8 @@ namespace TheGameShop.Api
             services.AddSingleton<ReviewMessageService>();
 
             services.AddGraphQL(o => { o.ExposeExceptions = true; })
-                .AddGraphTypes(ServiceLifetime.Scoped).AddUserContextBuilder(httpContext => httpContext.User)
+                .AddGraphTypes(ServiceLifetime.Scoped)
+                .AddUserContextBuilder(httpContext => httpContext.User)
                 .AddDataLoader()
                 .AddWebSockets();
 

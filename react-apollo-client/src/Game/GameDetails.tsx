@@ -1,7 +1,17 @@
 import React from "react";
 import { useParams } from "react-router";
 import { gql, useQuery } from "@apollo/client";
-import { GameType } from "../GraphQL/GamesType";
+import { GameType } from "./type-responses/game.type";
+import ReviewForm from "../components/review-form";
+import { useStyles } from "./game.material.style";
+
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import {
   Accordion,
   AccordionDetails,
@@ -9,31 +19,6 @@ import {
   Box,
   Container,
 } from "@material-ui/core";
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ReviewForm from "../components/review-form";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      maxWidth: 690,
-    },
-    media: {
-      height: 280,
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-  })
-);
 
 const GAME_QUERY = gql`
   query gameQuery($gameId: ID!) {
@@ -70,11 +55,11 @@ const GameDetails: React.FC<any> = (props) => {
     // pollInterval: 500,
   });
 
-  if (loading) return <h2>Loading...</h2>;
-  if (error) return <h2>{error.message}</h2>;
+  if (loading) return <Container>Loading..</Container>;
+  if (error) return <Container>{error.message}</Container>;
 
   return (
-    <Container maxWidth={"md"}>
+    <Container maxWidth={"sm"}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia

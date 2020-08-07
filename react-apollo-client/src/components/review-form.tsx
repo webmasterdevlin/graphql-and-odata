@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import { gql, useMutation } from "@apollo/client";
 import { Box, Button, TextField, Typography, Grid } from "@material-ui/core";
 import * as Yup from "yup";
@@ -15,7 +15,7 @@ const CREATE_REVIEW = gql`
 `;
 
 const ReviewForm: React.FC<any> = ({ id }) => {
-  const [mutate, { data, error, loading }] = useMutation(CREATE_REVIEW);
+  const [mutate, { data }] = useMutation(CREATE_REVIEW);
 
   const handleClickButton = (values: any) => {
     mutate({
@@ -33,11 +33,8 @@ const ReviewForm: React.FC<any> = ({ id }) => {
     <Grid container spacing={3}>
       <Grid item xs={6}>
         <Formik
-          initialValues={{ title: "", review: "" }}
-          validationSchema={Yup.object({
-            title: Yup.string(),
-            review: Yup.string(),
-          })}
+          initialValues={initialValue}
+          validationSchema={validator}
           onSubmit={(values, actions) => {
             handleClickButton(values);
           }}
@@ -82,3 +79,9 @@ const ReviewForm: React.FC<any> = ({ id }) => {
 };
 
 export default ReviewForm;
+
+const initialValue = { title: "", review: "" };
+const validator = Yup.object({
+  title: Yup.string(),
+  review: Yup.string(),
+});

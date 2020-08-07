@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {};
 
-const DashboardIndex: React.FC<Props> = () => {
+const DashboardIndex = () => {
   return <h1>Dashboard Index works!</h1>;
 };
 

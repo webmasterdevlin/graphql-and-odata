@@ -1,16 +1,17 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import { GameModel, GamesType } from "../GraphQL/GamesType";
+import { GamesType } from "./type-responses/game.type";
+import { useNavigate } from "react-router-dom";
+import { GameModel } from "./models/game.model";
 import {
   Badge,
   Box,
   Button,
+  Container,
   Paper,
-  Tooltip,
   Typography,
 } from "@material-ui/core";
 import RateReviewIcon from "@material-ui/icons/RateReview";
-import { useNavigate } from "react-router-dom";
 
 const GAMES_QUERY = gql`
   query {
@@ -34,11 +35,11 @@ const Games: React.FC<any> = () => {
 
   const navigate = useNavigate();
 
-  if (loading) return <p>loading...</p>;
-  if (error) return <pre>{JSON.stringify(error)}</pre>;
+  if (loading) return <Container>Loading...</Container>;
+  if (error) return <Container>{JSON.stringify(error)}</Container>;
 
   return (
-    <div style={{ margin: "1rem" }}>
+    <Container>
       <h1>Games</h1>
       {data?.games.map((game: GameModel) => (
         <Box mb={4} key={game.id}>
@@ -71,7 +72,7 @@ const Games: React.FC<any> = () => {
           </Paper>
         </Box>
       ))}
-    </div>
+    </Container>
   );
 };
 
