@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace TheGameShop.MobileApp
+namespace TheGameShop.MobileApp.Constants
 {
     public static class BackendConstants
     {

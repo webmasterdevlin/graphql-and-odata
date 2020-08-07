@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TheGameShop.MobileApp
+namespace TheGameShop.MobileApp.Models
 {
     public class GameGraphQLResponse
     {
