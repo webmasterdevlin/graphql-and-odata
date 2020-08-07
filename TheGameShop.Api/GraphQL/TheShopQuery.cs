@@ -19,6 +19,7 @@ namespace TheGameShop.Api.GraphQL
                 resolve: context =>
                 {
                     var id = context.GetArgument<int>("id");
+
                     return gameRepository.GetOne(id);
                 }
             );
@@ -29,6 +30,7 @@ namespace TheGameShop.Api.GraphQL
                 resolve: context =>
                 {
                     var id = context.GetArgument<int>("gameId");
+
                     return reviewRepository.GetForGame(id);
                 });
         }

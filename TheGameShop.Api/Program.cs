@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using TheGameShop.GraphQL;
 
 namespace TheGameShop.Api
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GraphQL.Instrumentation;
-using GraphQL.Types;
+﻿using GraphQL.Types;
 using TheGamesShop.Core.Entities;
 
 namespace TheGameShop.Api.GraphQL.Types
