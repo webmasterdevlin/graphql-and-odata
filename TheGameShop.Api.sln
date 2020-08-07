@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGameShop.MobileApp.iOS",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGameShop.MobileApp", "TheGameShop.MobileApp\TheGameShop.MobileApp\TheGameShop.MobileApp.csproj", "{B8AF0E81-E8E2-476A-AB7E-2DC99C2BA15A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{7157231A-28C7-4624-898D-04A96F49D235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DD9690F7-DBDE-4F21-A26A-8237DBA461F2} = {7157231A-28C7-4624-898D-04A96F49D235}
+		{855D785B-260B-4868-A376-AFFE96E04C14} = {7157231A-28C7-4624-898D-04A96F49D235}
+		{B8AF0E81-E8E2-476A-AB7E-2DC99C2BA15A} = {7157231A-28C7-4624-898D-04A96F49D235}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D712321-B995-4D1F-B746-E7E2F3D60E07}
