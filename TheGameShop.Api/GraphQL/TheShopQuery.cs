@@ -33,6 +33,16 @@ namespace TheGameShop.Api.GraphQL
 
                     return reviewRepository.GetForGame(id);
                 });
+
+            Field<ListGraphType<DeveloperType>>(
+                "developers",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "gameId" }),
+                resolve: context =>
+                {
+                    var id = context.GetArgument<int>("gameId");
+
+                    return gameRepository.GetDevelopedByForGame(id);
+                });
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TheGameShop.Infrastructure.Data;
@@ -36,5 +37,8 @@ namespace TheGameShop.Api.Repositories
 
             return game;
         }
+
+        public async Task<IEnumerable<Developer>> GetDevelopedByForGame(int gameId) =>
+            await _dbContext.Developers.Where(d => d.GameId == gameId).ToListAsync();
     }
 }
