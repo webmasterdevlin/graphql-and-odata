@@ -33,9 +33,14 @@ namespace TheGameShop.Api
 
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<TheGameShopSchema>();
+
             services.AddSingleton<ReviewMessageService>();
 
-            services.AddGraphQL(o => { o.ExposeExceptions = true; })
+            services.AddGraphQL(o =>
+                {
+                    o.ExposeExceptions = true;
+                    o.EnableMetrics = true;
+                })
                 .AddGraphTypes(ServiceLifetime.Scoped)
                 .AddUserContextBuilder(httpContext => httpContext.User)
                 .AddDataLoader()

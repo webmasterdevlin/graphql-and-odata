@@ -10,11 +10,13 @@ namespace TheGameShop.Api.GraphQL
         {
             Field<ListGraphType<GameType>>(
                 "games",
+                description: "All video games of The Game Shop",
                 resolve: context => gameRepository.GetAll()
             );
 
             Field<GameType>(
                 "game",
+                description: "a game",
                 arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "id" }),
                 resolve: context =>
                 {
@@ -36,7 +38,8 @@ namespace TheGameShop.Api.GraphQL
 
             Field<ListGraphType<DeveloperType>>(
                 "developers",
-               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "gameId" }),
+                description: "All video game developers of this game",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "gameId" }),
                 resolve: context =>
                 {
                     var id = context.GetArgument<int>("gameId");

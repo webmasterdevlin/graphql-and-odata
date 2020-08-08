@@ -8,7 +8,9 @@ namespace TheGameShop.Api.GraphQL
         public TheGameShopSchema(IDependencyResolver resolver) : base(resolver)
         {
             Query = resolver.Resolve<TheGameShopQuery>();
+
             Mutation = resolver.Resolve<TheGameShopMutation>();
+
             Subscription = resolver.Resolve<TheGameShopSubscription>();
         }
     }
