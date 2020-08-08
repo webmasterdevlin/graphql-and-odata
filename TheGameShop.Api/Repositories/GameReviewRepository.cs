@@ -4,11 +4,10 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TheGameShop.Infrastructure.Data;
 using TheGamesShop.Core.Entities;
-using TheGamesShop.Core.Interfaces;
 
 namespace TheGameShop.Api.Repositories
 {
-    public class GameReviewRepository : IGameReviewRepository
+    public class GameReviewRepository
     {
         private readonly TheGameShopDbContext _dbContext;
 
