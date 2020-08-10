@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
+using TheGameShop.Api.GraphQL.Messaging;
 using TheGameShop.Api.GraphQL.Types;
 using TheGameShop.Api.Repositories;
-using TheGameShop.GraphQL.GraphQL.Messaging;
 using TheGamesShop.Core.Entities;
 
 namespace TheGameShop.Api.GraphQL

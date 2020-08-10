@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using TheGameShop.Api.GraphQL.Messaging;
 using TheGamesShop.Core.Entities;
 
-namespace TheGameShop.GraphQL.GraphQL.Messaging
+namespace TheGameShop.Api.GraphQL.Messaging
 {
     public class ReviewMessageService
     {

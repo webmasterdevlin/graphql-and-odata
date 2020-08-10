@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TheGameShop.Api.GraphQL;
+using TheGameShop.Api.GraphQL.Messaging;
 using TheGameShop.Api.OData;
 using TheGameShop.Api.Repositories;
-using TheGameShop.GraphQL.GraphQL.Messaging;
 using TheGameShop.Infrastructure.Data;
 
 namespace TheGameShop.Api

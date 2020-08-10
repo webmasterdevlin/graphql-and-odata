@@ -2,7 +2,6 @@
 using GraphQL.Types;
 using TheGameShop.Api.GraphQL.Messaging;
 using TheGameShop.Api.GraphQL.Types;
-using TheGameShop.GraphQL.GraphQL.Messaging;
 
 namespace TheGameShop.Api.GraphQL
 {
