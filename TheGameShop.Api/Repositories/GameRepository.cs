@@ -16,11 +16,11 @@ namespace TheGameShop.Api.Repositories
         public async Task<IEnumerable<Game>> GetAll()
         {
             var games = await _dbContext
-                  .Games
-                  .Include(g => g.DevelopedBy)
-                  .Include(g => g.PublishedBy)
-                  .Include(g => g.Genre)
-                  .ToListAsync();
+                                          .Games
+                                          .Include(g => g.DevelopedBy)
+                                          .Include(g => g.PublishedBy)
+                                          .Include(g => g.Genre)
+                                          .ToListAsync();
 
             return games;
         }
@@ -28,11 +28,11 @@ namespace TheGameShop.Api.Repositories
         public async Task<Game> GetOne(int id)
         {
             var game = await _dbContext
-                .Games
-                .Include(g => g.DevelopedBy)
-                .Include(g => g.PublishedBy)
-                .Include(g => g.Genre)
-                .SingleOrDefaultAsync(g => g.Id == id);
+                                .Games
+                                .Include(g => g.DevelopedBy)
+                                .Include(g => g.PublishedBy)
+                                .Include(g => g.Genre)
+                                .SingleOrDefaultAsync(g => g.Id == id);
 
             return game;
         }

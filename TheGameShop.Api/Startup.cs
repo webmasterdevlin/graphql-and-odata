@@ -26,7 +26,7 @@ namespace TheGameShop.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TheGameShopDbContext>(options => options
-                .UseSqlite("Data Source=GraphqlTheGameShopDatabase.sqlite3"));
+                        .UseSqlite("Data Source=GraphqlTheGameShopDatabase.sqlite3"));
 
             services.AddScoped<GameRepository>();
             services.AddScoped<GameReviewRepository>();

@@ -35,8 +35,10 @@ namespace TheGameShop.Api.GraphQL.Types
                     // var user = (ClaimsPrincipal)context.UserContext;
 
                     var loader = dataLoaderAccessor
-                        .Context
-                        .GetOrAddCollectionBatchLoader<int, GameReview>("GetReviewsByGameId", reviewRepository.GetForGames);
+                                    .Context
+                                    .GetOrAddCollectionBatchLoader<int, GameReview>(
+                                        "GetReviewsByGameId",
+                                        reviewRepository.GetForGames);
 
                     return loader.LoadAsync(context.Source.Id);
                 });
