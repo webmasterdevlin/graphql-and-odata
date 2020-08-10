@@ -1,8 +1,10 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GamesType } from "./type-responses/game.type";
 import { useNavigate } from "react-router-dom";
 import { GameModel } from "./models/game.model";
+import RateReviewIcon from "@material-ui/icons/RateReview";
+import { GAMES_QUERY } from "../graphql-requests/queries";
 import {
   Badge,
   Box,
@@ -11,24 +13,6 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import RateReviewIcon from "@material-ui/icons/RateReview";
-
-const GAMES_QUERY = gql`
-  query {
-    games {
-      id
-      name
-      price
-      stock
-      rating
-      reviews {
-        id
-        review
-        title
-      }
-    }
-  }
-`;
 
 const Games: React.FC<any> = () => {
   const { loading, data, error } = useQuery<GamesType>(GAMES_QUERY);

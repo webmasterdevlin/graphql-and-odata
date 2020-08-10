@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GameType } from "./type-responses/game.type";
 import ReviewForm from "../components/review-form";
 import { useStyles } from "./game.material.style";
@@ -19,31 +19,7 @@ import {
   Box,
   Container,
 } from "@material-ui/core";
-
-const GAME_QUERY = gql`
-  query gameQuery($gameId: ID!) {
-    game(id: $gameId) {
-      id
-      name
-      rating
-      price
-      stock
-      developedBy {
-        name
-      }
-      publishedBy {
-        name
-      }
-      genre {
-        type
-      }
-      reviews {
-        title
-        review
-      }
-    }
-  }
-`;
+import { GAME_QUERY } from "../graphql-requests/queries";
 
 const GameDetails: React.FC<any> = (props) => {
   const classes = useStyles();

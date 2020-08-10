@@ -1,18 +1,9 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { Box, Button, TextField, Typography, Grid } from "@material-ui/core";
 import * as Yup from "yup";
-
-const CREATE_REVIEW = gql`
-  mutation CreateReview($review: reviewInput!) {
-    createReview(review: $review) {
-      id
-      title
-      review
-    }
-  }
-`;
+import { CREATE_REVIEW } from "../graphql-requests/mutations";
 
 const ReviewForm: React.FC<any> = ({ id }) => {
   const [mutate, { data }] = useMutation(CREATE_REVIEW);
