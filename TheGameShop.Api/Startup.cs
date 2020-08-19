@@ -64,7 +64,7 @@ namespace TheGameShop.Api
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.Select().OrderBy().Filter().Count().Expand(); // .MaxTop(10)
-                routeBuilder.MapODataServiceRoute("odata", "odata", EntityDataModel.GetEdmModel());
+                routeBuilder.MapODataServiceRoute("odata", "odata", EntityDataModel.GetEdmModel()); // https://localhost:5001/odata/games?$select=Name
             });
 
             app.UseWebSockets();

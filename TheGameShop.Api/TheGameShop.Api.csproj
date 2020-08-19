@@ -11,11 +11,11 @@
 		<PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.4.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OData" Version="7.4.1" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
