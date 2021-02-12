@@ -17,7 +17,7 @@
     "@types/react-helmet": "^6.1.0",
     "@types/yup": "^0.29.11",
     "formik": "^2.2.6",
-    "graphql": "^14.7.0",
+    "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "graphql-tag": "^2.11.0",
     "react": "^17.0.1",
